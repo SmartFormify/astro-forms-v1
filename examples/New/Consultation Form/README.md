@@ -1,99 +1,126 @@
-# Laravel Blade Consultation Form
+# Astro Consultation Form
 
-A basic **Consultation** form built with Laravel Blade that submits form data directly to a **SmartFormify endpoint**.
+A basic Consultation form built with Astro that submits form data directly to a SmartFormify endpoint.
+
+The original Laravel Blade implementation has been converted to Astro. Laravel routes, PHP, Composer, Blade syntax, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
 ```text
 consultation-form/
 ├── README.md
-├── routes/
-│   └── web.php
-├── resources/
-│   └── views/
-│       └── consultation_form.blade.php
-└── public/
-    └── css/
-        └── style.css
+├── style.css
+└── consultation_form.astro
 ```
 
 ## Form Fields
 
-* Full Name
-* Email
-* Phone
-* Consultation Type
-* Preferred Date
-* Preferred Time
-* Company / Organization
-* Consultation Details
+- Full Name
+- Email
+- Phone
+- Consultation Type
+- Preferred Date
+- Preferred Time
+- Company / Organization
+- Consultation Details
 
-## Setup
-
-### 1. Add the Route
-
-In `routes/web.php`:
-
-```php
-use Illuminate\Support\Facades\Route;
-
-Route::view('/consultation-form', 'consultation_form');
-```
-
-### 2. Add the Blade File
-
-Create:
-
-```text
-resources/views/consultation_form.blade.php
-```
-
-Add the Consultation form code.
-
-### 3. Add the CSS File
-
-Create:
-
-```text
-public/css/consultation_form.css
-```
-
-The Blade file loads the stylesheet using:
-
-```blade
-<link
-    rel="stylesheet"
-    href="{{ asset('css/style.css') }}"
->
-```
-
-### 4. Add Your SmartFormify Endpoint
-
-Update the form action:
-
-```html
-<form
-    action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
-    method="POST"
->
-```
-
-Replace `YOUR_FORM_ENDPOINT` with your actual SmartFormify endpoint.
-
-### 5. Run Laravel
-
-```bash
-php artisan serve
-```
+## SmartFormify Setup
 
 Open:
 
 ```text
-http://127.0.0.1:8000/consultation-form
+consultation_form.astro
 ```
 
-## Note
+Update:
 
-This is a basic Laravel Blade example. Laravel serves the Blade view, the external CSS file handles styling, and the browser submits the completed form directly to SmartFormify.
+```astro
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+```
 
-No controller or additional Laravel packages are required.
+Replace the placeholder with your actual SmartFormify endpoint.
+
+The form submits directly using `POST`:
+
+```text
+Astro Consultation Form
+          ↓
+SmartFormify Endpoint
+          ↓
+Submission Processing
+          ↓
+Email / Notifications / Response
+```
+
+No Laravel route, PHP controller, Astro API route, or additional package is required.
+
+## Hidden Field
+
+The form includes the SmartFormify silent bot-check field:
+
+```html
+<input type="hidden" name="notes_hqse" value="" />
+```
+
+Keep this field present and empty.
+
+## CSS
+
+All styling is contained in:
+
+```text
+style.css
+```
+
+The Astro page references it with:
+
+```html
+<link rel="stylesheet" href="/style.css">
+```
+
+When integrating into an Astro project, place `style.css` in the project's `public/` directory if it should be served as `/style.css`.
+
+## Setup
+
+Place `consultation_form.astro` under an appropriate `src/pages/` location in your Astro project. Its location determines the page URL.
+
+## Requirements
+
+- Astro
+- SmartFormify endpoint URL
+- No additional packages
+
+## Testing
+
+1. Configure the SmartFormify endpoint.
+2. Open the Consultation page.
+3. Complete the consultation information.
+4. Select the consultation type.
+5. Choose a preferred date and time.
+6. Submit the form.
+7. Verify the submission in your SmartFormify workflow.
+
+> Note: This form provides the consultation UI and endpoint submission. It does not schedule consultations, store requests, send notifications, or manage a consultation calendar unless those workflows are configured through the connected endpoint.
+
+## Customization
+
+Edit `consultation_form.astro` to customize:
+
+- Consultation types
+- Available dates
+- Available time options
+- Form fields
+- Labels
+- Placeholders
+- Button text
+- SmartFormify endpoint
+
+Edit `style.css` to customize:
+
+- Colors
+- Typography
+- Spacing
+- Form width
+- Input styles
+- Button styles
+- Responsive behavior

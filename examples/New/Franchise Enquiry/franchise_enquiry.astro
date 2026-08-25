@@ -1,14 +1,18 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Consultation Form</title>
+    <title>Franchise Enquiry</title>
 
     <link
         rel="stylesheet"
-        href="{{ asset('css/style.css') }}"
+        href="/style.css"
     >
 </head>
 
@@ -16,10 +20,10 @@
 
     <main class="form-container">
 
-        <h1>Consultation Form</h1>
+        <h1>Franchise Enquiry</h1>
 
         <form
-            action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
+            action={endpointUrl}
             method="POST"
         >
 
@@ -57,46 +61,7 @@
             </div>
 
             <div class="form-group">
-                <label for="consultation_type">Consultation Type</label>
-
-                <select
-                    id="consultation_type"
-                    name="consultation_type"
-                    required
-                >
-                    <option value="">Select consultation type</option>
-                    <option value="business">Business Consultation</option>
-                    <option value="marketing">Marketing Consultation</option>
-                    <option value="technical">Technical Consultation</option>
-                    <option value="financial">Financial Consultation</option>
-                    <option value="legal">Legal Consultation</option>
-                    <option value="other">Other</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="preferred_date">Preferred Date</label>
-
-                <input
-                    type="date"
-                    id="preferred_date"
-                    name="preferred_date"
-                    required
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="preferred_time">Preferred Time</label>
-
-                <input
-                    type="time"
-                    id="preferred_time"
-                    name="preferred_time"
-                >
-            </div>
-
-            <div class="form-group">
-                <label for="company">Company / Organization</label>
+                <label for="company">Company Name</label>
 
                 <input
                     type="text"
@@ -106,21 +71,59 @@
             </div>
 
             <div class="form-group">
-                <label for="message">What Would You Like to Discuss?</label>
+                <label for="location">Preferred Location</label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="investment">Investment Range</label>
+
+                <select
+                    id="investment"
+                    name="investment"
+                    required
+                >
+                    <option value="">Select investment range</option>
+                    <option value="under_25k">Under $25,000</option>
+                    <option value="25k_50k">$25,000 - $50,000</option>
+                    <option value="50k_100k">$50,000 - $100,000</option>
+                    <option value="100k_plus">$100,000+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="experience">Business Experience</label>
+
+                <textarea
+                    id="experience"
+                    name="experience"
+                    placeholder="Tell us about your business experience."
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Enquiry / Message</label>
 
                 <textarea
                     id="message"
                     name="message"
-                    placeholder="Briefly describe what you would like help with."
                     required
                 ></textarea>
             </div>
 
             <button type="submit">
-                Request Consultation
+                Submit Enquiry
             </button>
 
-        </form>
+            <input type="hidden" name="notes_hqse" value="" />
+
+</form>
 
     </main>
 

@@ -1,82 +1,128 @@
-# Laravel Blade Multi-Step Form
+# Astro Multi-Step Contact Form
 
-A basic multi-step contact form built with **Laravel Blade** and **JavaScript**, submitting form data directly to a **SmartFormify endpoint**.
+A basic multi-step contact form built with **Astro** and JavaScript, submitting the completed form directly to a **SmartFormify endpoint**.
+
+The original Laravel Blade implementation has been converted to Astro. Laravel routes, PHP, Composer, Blade syntax, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
 ```text
-multi-step-form/
+multi-step-contact-form/
 ├── README.md
-├── routes/
-│   └── web.php
-└── resources/
-    └── views/
-        └── multi_step_form.blade.php
+├── style.css
+└── multi_step_form.astro
 ```
 
 ## How It Works
 
 The form has three steps:
 
-1. Personal Information — Name, Email
-2. Contact Details — Phone, Subject
-3. Message — Message
+1. **Personal Information** — Name, Email
+2. **Contact Details** — Phone, Subject
+3. **Message** — Message
 
-The JavaScript controls the steps, and the completed form is submitted directly to SmartFormify.
+JavaScript controls the step navigation.
+
+The flow is:
 
 ```text
 Step 1 → Step 2 → Step 3 → Submit → SmartFormify
 ```
 
-## Setup
-
-### 1. Add the Route
-
-In `routes/web.php`:
-
-```php
-use Illuminate\Support\Facades\Route;
-
-Route::view('/multi-step-form', 'multi_step_form');
-```
-
-### 2. Add the Blade File
-
-Create:
-
-```text
-resources/views/multi_step_form.blade.php
-```
-
-Add the multi-step form code.
-
-### 3. Add Your SmartFormify Endpoint
-
-Update the form action:
-
-```html
-<form
-    action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
-    method="POST"
->
-```
-
-Replace `YOUR_FORM_ENDPOINT` with your actual SmartFormify endpoint.
-
-### 4. Run Laravel
-
-```bash
-php artisan serve
-```
+## SmartFormify Setup
 
 Open:
 
 ```text
-http://127.0.0.1:8000/multi-step-form
+multi_step_form.astro
 ```
 
-## Note
+Update the Astro frontmatter:
 
-This is a basic example. Laravel serves the Blade view, JavaScript handles the multi-step UI, and the browser submits the completed form directly to SmartFormify.
+```astro
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+```
 
-No controller or additional Laravel packages are required.
+Replace the placeholder with your actual SmartFormify endpoint.
+
+The completed form is submitted with:
+
+```html
+method="POST"
+```
+
+## Hidden Field
+
+The form includes the SmartFormify silent bot-check field:
+
+```html
+<input type="hidden" name="notes_hqse" value="" />
+```
+
+Keep this field present and empty.
+
+## CSS
+
+All styling is contained in:
+
+```text
+style.css
+```
+
+The Astro page references the stylesheet with:
+
+```html
+<link rel="stylesheet" href="/style.css">
+```
+
+When integrating into an Astro project, place `style.css` in the project's `public/` directory if it should be served as `/style.css`.
+
+## Setup
+
+Place `multi_step_form.astro` under an appropriate `src/pages/` location in your Astro project.
+
+Its location determines the page URL.
+
+No Astro API route or additional package is required.
+
+## Requirements
+
+- Astro
+- JavaScript
+- SmartFormify endpoint URL
+- No additional packages
+
+## Testing
+
+1. Configure the SmartFormify endpoint.
+2. Open the multi-step contact form.
+3. Complete Step 1.
+4. Continue to Step 2.
+5. Complete Step 2.
+6. Continue to Step 3.
+7. Enter the message.
+8. Submit the completed form.
+9. Verify the submission in your SmartFormify workflow.
+
+## Customization
+
+Edit `multi_step_form.astro` to customize:
+
+- Step titles
+- Form fields
+- Labels
+- Placeholders
+- Navigation buttons
+- Validation
+- SmartFormify endpoint
+
+Edit `style.css` to customize:
+
+- Colors
+- Typography
+- Spacing
+- Form width
+- Step indicator
+- Input styles
+- Button styles
+- Responsive behavior
