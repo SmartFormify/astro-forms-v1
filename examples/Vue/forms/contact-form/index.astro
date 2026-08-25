@@ -1,0 +1,222 @@
+---
+import './style.css';
+
+const endpointUrl = 'YOUR_SMARTFORMIFY_ENDPOINT_URL';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Contact Form | Astro Forms</title>
+
+    <meta
+      name="description"
+      content="A professional responsive contact form built with Astro and connected to a SmartFormify endpoint."
+    />
+  </head>
+
+  <body>
+    <main class="page-wrapper">
+      <section class="contact-section">
+        <div class="contact-container">
+
+          <div class="contact-intro">
+            <span class="eyebrow">Get in touch</span>
+
+            <h1>Let's start a conversation.</h1>
+
+            <p>
+              Have a question, project idea, or need some assistance?
+              Fill out the form and we'll get back to you as soon as possible.
+            </p>
+
+            <div class="contact-details">
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 4h16v16H4z" />
+                    <path d="m4 5 8 6 8-6" />
+                  </svg>
+                </div>
+
+                <div>
+                  <span>Email</span>
+                  <strong>hello@example.com</strong>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M22 16.92v3a2 2 0 0 1-2.18 2
+                      19.79 19.79 0 0 1-8.63-3.07
+                      19.5 19.5 0 0 1-6-6
+                      19.79 19.79 0 0 1-3.07-8.67
+                      A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+                      12.84 12.84 0 0 0 .7 2.81
+                      2 2 0 0 1-.45 2.11L8.09 9.91
+                      a16 16 0 0 0 6 6l1.27-1.27
+                      a2 2 0 0 1 2.11-.45
+                      12.84 12.84 0 0 0 2.81.7
+                      A2 2 0 0 1 22 16.92z"
+                    />
+                  </svg>
+                </div>
+
+                <div>
+                  <span>Phone</span>
+                  <strong>+1 (555) 123-4567</strong>
+                </div>
+              </div>
+
+              <div class="detail-item">
+                <div class="detail-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z" />
+                    <circle cx="12" cy="9" r="2.5" />
+                  </svg>
+                </div>
+
+                <div>
+                  <span>Office</span>
+                  <strong>123 Business Avenue</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-card">
+            <div class="form-header">
+              <h2>Send us a message</h2>
+
+              <p>
+                Complete the form below and we'll be in touch.
+              </p>
+            </div>
+
+            <form
+              action={endpointUrl}
+              method="POST"
+              class="contact-form"
+            >
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label for="name">
+                    Full Name
+                    <span>*</span>
+                  </label>
+
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="John Doe"
+                    autocomplete="name"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">
+                    Email Address
+                    <span>*</span>
+                  </label>
+
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="john@example.com"
+                    autocomplete="email"
+                    required
+                  />
+                </div>
+
+              </div>
+
+              <div class="form-group">
+                <label for="subject">
+                  Subject
+                  <span>*</span>
+                </label>
+
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="How can we help?"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">
+                  Message
+                  <span>*</span>
+                </label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Tell us a little about your question or project..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- SmartFormify silent bot-check field -->
+              <input
+                type="hidden"
+                name="notes_hqse"
+                value=""
+              />
+
+              <button type="submit" class="submit-button">
+                <span>Send Message</span>
+
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14" />
+                  <path d="m13 6 6 6-6 6" />
+                </svg>
+              </button>
+
+              <p class="form-note">
+                By submitting this form, you agree to our terms and privacy policy.
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

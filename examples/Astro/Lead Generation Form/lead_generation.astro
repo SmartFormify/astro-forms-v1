@@ -1,0 +1,340 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Get Started</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <main class="lead-page">
+
+        <section class="lead-card">
+
+            <!-- Header -->
+            <div class="lead-header">
+
+                <div class="lead-icon">
+                    →
+                </div>
+
+                <div>
+                    <span class="eyebrow">
+                        Let's Connect
+                    </span>
+
+                    <h1>Let's talk about your goals</h1>
+
+                    <p>
+                        Tell us a little about yourself and what you're looking for.
+                        Our team will get in touch with you shortly.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Lead Form -->
+            <form
+                action={endpointUrl}
+                method="POST"
+                class="lead-form"
+            >
+
+                <!-- Contact Information -->
+                <div class="section-header">
+                    <h2>Contact information</h2>
+                    <p>We'll use these details to contact you.</p>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="first_name">
+                            First Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            placeholder="John"
+                            autocomplete="given-name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">
+                            Last Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            placeholder="Doe"
+                            autocomplete="family-name"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="email">
+                            Work Email <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="john@company.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+1 (555) 123-4567"
+                            autocomplete="tel"
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- Company Details -->
+                <div class="section-header section-spacing">
+                    <h2>About your business</h2>
+                    <p>Help us understand your business and requirements.</p>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="company">
+                        Company Name <span>*</span>
+                    </label>
+
+                    <input
+                        type="text"
+                        id="company"
+                        name="company"
+                        placeholder="Your company"
+                        autocomplete="organization"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="company_size">
+                            Company Size
+                        </label>
+
+                        <select
+                            id="company_size"
+                            name="company_size"
+                        >
+                            <option value="" selected disabled>
+                                Select company size
+                            </option>
+
+                            <option value="1-10">
+                                1–10 employees
+                            </option>
+
+                            <option value="11-50">
+                                11–50 employees
+                            </option>
+
+                            <option value="51-200">
+                                51–200 employees
+                            </option>
+
+                            <option value="201-500">
+                                201–500 employees
+                            </option>
+
+                            <option value="501-plus">
+                                501+ employees
+                            </option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="industry">
+                            Industry
+                        </label>
+
+                        <select
+                            id="industry"
+                            name="industry"
+                        >
+                            <option value="" selected disabled>
+                                Select industry
+                            </option>
+
+                            <option value="technology">
+                                Technology
+                            </option>
+
+                            <option value="healthcare">
+                                Healthcare
+                            </option>
+
+                            <option value="finance">
+                                Finance
+                            </option>
+
+                            <option value="education">
+                                Education
+                            </option>
+
+                            <option value="real-estate">
+                                Real Estate
+                            </option>
+
+                            <option value="retail">
+                                Retail
+                            </option>
+
+                            <option value="professional-services">
+                                Professional Services
+                            </option>
+
+                            <option value="other">
+                                Other
+                            </option>
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Interest -->
+                <div class="section-header section-spacing">
+                    <h2>What are you looking for?</h2>
+                    <p>Tell us what you are interested in.</p>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="interest">
+                        Primary Interest <span>*</span>
+                    </label>
+
+                    <select
+                        id="interest"
+                        name="interest"
+                        required
+                    >
+                        <option value="" selected disabled>
+                            Select an option
+                        </option>
+
+                        <option value="product-demo">
+                            Product Demo
+                        </option>
+
+                        <option value="pricing">
+                            Pricing Information
+                        </option>
+
+                        <option value="consultation">
+                            Consultation
+                        </option>
+
+                        <option value="partnership">
+                            Partnership
+                        </option>
+
+                        <option value="more-information">
+                            More Information
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="message">
+                        Tell us more
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Tell us about your goals, challenges, or what you'd like to discuss..."
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Consent -->
+                <div class="consent-group">
+
+                    <input
+                        type="checkbox"
+                        id="consent"
+                        name="consent"
+                        value="accepted"
+                        required
+                    >
+
+                    <label for="consent">
+                        I agree to be contacted regarding my inquiry
+                        and understand that my information will be used
+                        to respond to my request.
+                    </label>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Get Started
+                </button>
+
+                <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,402 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Survey</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <main class="survey-page">
+
+        <section class="survey-card">
+
+            <!-- Header -->
+            <div class="survey-header">
+
+                <div class="survey-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <span class="eyebrow">
+                        Customer Survey
+                    </span>
+
+                    <h1>We'd love your feedback</h1>
+
+                    <p>
+                        Take a few minutes to share your experience.
+                        Your feedback helps us improve our products and services.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Survey Form -->
+            <form
+                action={endpointUrl}
+                method="POST"
+                class="survey-form"
+            >
+
+                <!-- Basic Information -->
+                <div class="section-header">
+                    <h2>About you</h2>
+                    <p>Optional information to help us understand your response.</p>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="John Doe"
+                            autocomplete="name"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="john@example.com"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Overall Experience -->
+                <div class="section-header section-spacing">
+                    <h2>Overall experience</h2>
+                    <p>Tell us how you feel about your overall experience.</p>
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        How satisfied are you with our service? <span>*</span>
+                    </label>
+
+                    <div class="rating-options">
+
+                        <label class="rating-option">
+                            <input
+                                type="radio"
+                                name="satisfaction"
+                                value="very-dissatisfied"
+                                required
+                            >
+
+                            <span>1</span>
+
+                            <small>
+                                Very dissatisfied
+                            </small>
+                        </label>
+
+                        <label class="rating-option">
+                            <input
+                                type="radio"
+                                name="satisfaction"
+                                value="dissatisfied"
+                            >
+
+                            <span>2</span>
+
+                            <small>
+                                Dissatisfied
+                            </small>
+                        </label>
+
+                        <label class="rating-option">
+                            <input
+                                type="radio"
+                                name="satisfaction"
+                                value="neutral"
+                            >
+
+                            <span>3</span>
+
+                            <small>
+                                Neutral
+                            </small>
+                        </label>
+
+                        <label class="rating-option">
+                            <input
+                                type="radio"
+                                name="satisfaction"
+                                value="satisfied"
+                            >
+
+                            <span>4</span>
+
+                            <small>
+                                Satisfied
+                            </small>
+                        </label>
+
+                        <label class="rating-option">
+                            <input
+                                type="radio"
+                                name="satisfaction"
+                                value="very-satisfied"
+                            >
+
+                            <span>5</span>
+
+                            <small>
+                                Very satisfied
+                            </small>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Product Experience -->
+                <div class="form-group">
+
+                    <label for="product_usage">
+                        How often do you use our product? <span>*</span>
+                    </label>
+
+                    <select
+                        id="product_usage"
+                        name="product_usage"
+                        required
+                    >
+                        <option value="" selected disabled>
+                            Select an option
+                        </option>
+
+                        <option value="daily">
+                            Daily
+                        </option>
+
+                        <option value="weekly">
+                            Several times a week
+                        </option>
+
+                        <option value="monthly">
+                            Several times a month
+                        </option>
+
+                        <option value="rarely">
+                            Rarely
+                        </option>
+
+                        <option value="first-time">
+                            This is my first time
+                        </option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        How easy was it to use our product? <span>*</span>
+                    </label>
+
+                    <div class="radio-list">
+
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="ease_of_use"
+                                value="very-easy"
+                                required
+                            >
+                            <span>Very easy</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="ease_of_use"
+                                value="easy"
+                            >
+                            <span>Easy</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="ease_of_use"
+                                value="neutral"
+                            >
+                            <span>Neither easy nor difficult</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="ease_of_use"
+                                value="difficult"
+                            >
+                            <span>Difficult</span>
+                        </label>
+
+                        <label class="radio-item">
+                            <input
+                                type="radio"
+                                name="ease_of_use"
+                                value="very-difficult"
+                            >
+                            <span>Very difficult</span>
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Improvement -->
+                <div class="section-header section-spacing">
+                    <h2>Your thoughts</h2>
+                    <p>Help us understand what we can do better.</p>
+                </div>
+
+                <div class="form-group">
+
+                    <label for="best_part">
+                        What do you like most about our product?
+                    </label>
+
+                    <textarea
+                        id="best_part"
+                        name="best_part"
+                        placeholder="Tell us what you enjoy most..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="improvement">
+                        What could we improve?
+                    </label>
+
+                    <textarea
+                        id="improvement"
+                        name="improvement"
+                        placeholder="Share any suggestions or areas for improvement..."
+                    ></textarea>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="recommend">
+                        How likely are you to recommend us? <span>*</span>
+                    </label>
+
+                    <select
+                        id="recommend"
+                        name="recommend"
+                        required
+                    >
+                        <option value="" selected disabled>
+                            Select a score
+                        </option>
+
+                        <option value="10">10 - Extremely likely</option>
+                        <option value="9">9</option>
+                        <option value="8">8</option>
+                        <option value="7">7</option>
+                        <option value="6">6</option>
+                        <option value="5">5</option>
+                        <option value="4">4</option>
+                        <option value="3">3</option>
+                        <option value="2">2</option>
+                        <option value="1">1</option>
+                        <option value="0">0 - Not at all likely</option>
+                    </select>
+
+                </div>
+
+
+                <!-- Additional Comment -->
+                <div class="form-group">
+
+                    <label for="additional_comments">
+                        Additional Comments
+                    </label>
+
+                    <textarea
+                        id="additional_comments"
+                        name="additional_comments"
+                        placeholder="Anything else you'd like to share?"
+                    ></textarea>
+
+                </div>
+
+
+                <!-- Consent -->
+                <div class="consent-group">
+
+                    <input
+                        type="checkbox"
+                        id="contact_permission"
+                        name="contact_permission"
+                        value="yes"
+                    >
+
+                    <label for="contact_permission">
+                        You may contact me about my survey response
+                        if additional information is needed.
+                    </label>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Submit Survey
+                </button>
+
+                <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

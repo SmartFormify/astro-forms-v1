@@ -1,0 +1,352 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job Application</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <main class="application-page">
+
+        <section class="application-card">
+
+            <!-- Header -->
+            <div class="form-header">
+
+                <div class="brand-mark">
+                    J
+                </div>
+
+                <div>
+                    <span class="eyebrow">
+                        Careers
+                    </span>
+
+                    <h1>
+                        Join our team
+                    </h1>
+
+                    <p>
+                        Tell us about yourself and the role you're interested in.
+                        We'll review your application and get back to you.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <!-- Application Form -->
+            <form
+                action={endpointUrl}
+                method="POST"
+                enctype="multipart/form-data"
+                class="application-form"
+            >
+
+                <!-- Personal Information -->
+                <div class="section-header">
+                    <h2>Personal information</h2>
+                    <p>Basic information about you.</p>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="first_name">
+                            First Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="first_name"
+                            name="first_name"
+                            placeholder="John"
+                            autocomplete="given-name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last_name">
+                            Last Name <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="last_name"
+                            name="last_name"
+                            placeholder="Doe"
+                            autocomplete="family-name"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="email">
+                            Email Address <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="john@example.com"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">
+                            Phone Number <span>*</span>
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+1 (555) 123-4567"
+                            autocomplete="tel"
+                            required
+                        >
+                    </div>
+
+                </div>
+
+
+                <!-- Position -->
+                <div class="section-header section-spacing">
+                    <h2>Position details</h2>
+                    <p>Tell us which opportunity you're applying for.</p>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label for="position">
+                            Position <span>*</span>
+                        </label>
+
+                        <select
+                            id="position"
+                            name="position"
+                            required
+                        >
+                            <option value="" selected disabled>
+                                Select a position
+                            </option>
+
+                            <option value="frontend-developer">
+                                Frontend Developer
+                            </option>
+
+                            <option value="backend-developer">
+                                Backend Developer
+                            </option>
+
+                            <option value="full-stack-developer">
+                                Full Stack Developer
+                            </option>
+
+                            <option value="ui-ux-designer">
+                                UI/UX Designer
+                            </option>
+
+                            <option value="project-manager">
+                                Project Manager
+                            </option>
+
+                            <option value="marketing-specialist">
+                                Marketing Specialist
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">
+                            Experience <span>*</span>
+                        </label>
+
+                        <select
+                            id="experience"
+                            name="experience"
+                            required
+                        >
+                            <option value="" selected disabled>
+                                Select experience
+                            </option>
+
+                            <option value="0-1">
+                                0–1 years
+                            </option>
+
+                            <option value="2-3">
+                                2–3 years
+                            </option>
+
+                            <option value="4-6">
+                                4–6 years
+                            </option>
+
+                            <option value="7-10">
+                                7–10 years
+                            </option>
+
+                            <option value="10-plus">
+                                10+ years
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label for="portfolio">
+                        Portfolio / LinkedIn URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="portfolio"
+                        name="portfolio"
+                        placeholder="https://linkedin.com/in/yourname"
+                    >
+                </div>
+
+
+                <!-- Cover Letter -->
+                <div class="section-header section-spacing">
+                    <h2>About your application</h2>
+                    <p>Share a little more about your experience and interest.</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="cover_letter">
+                        Cover Letter <span>*</span>
+                    </label>
+
+                    <textarea
+                        id="cover_letter"
+                        name="cover_letter"
+                        placeholder="Tell us why you're interested in this position..."
+                        required
+                    ></textarea>
+                </div>
+
+
+                <!-- Resume -->
+                <div class="form-group">
+
+                    <label for="resume">
+                        Resume / CV <span>*</span>
+                    </label>
+
+                    <div class="file-upload">
+
+                        <input
+                            type="file"
+                            id="resume"
+                            name="resume"
+                            accept=".pdf,.doc,.docx"
+                            required
+                        >
+
+                        <div class="upload-icon">
+                            ↑
+                        </div>
+
+                        <div class="upload-title">
+                            Upload your resume
+                        </div>
+
+                        <div class="upload-text">
+                            PDF, DOC or DOCX · Maximum 10 MB
+                        </div>
+
+                        <div id="file-name"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Consent -->
+                <div class="consent-group">
+
+                    <input
+                        type="checkbox"
+                        id="consent"
+                        name="consent"
+                        value="accepted"
+                        required
+                    >
+
+                    <label for="consent">
+                        I confirm that the information provided in this application
+                        is accurate and may be used for recruitment purposes.
+                    </label>
+
+                </div>
+
+
+                <!-- Submit -->
+                <button
+                    type="submit"
+                    class="submit-button"
+                >
+                    Submit Application
+                </button>
+
+                <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+        </section>
+
+    </main>
+
+
+    <script>
+        const resumeInput = document.getElementById("resume");
+        const fileName = document.getElementById("file-name");
+
+        resumeInput.addEventListener("change", function () {
+
+            if (this.files.length === 0) {
+                fileName.textContent = "";
+                return;
+            }
+
+            const file = this.files[0];
+            const maxSize = 10 * 1024 * 1024;
+
+            if (file.size > maxSize) {
+                fileName.textContent = "File is larger than 10 MB.";
+                fileName.classList.add("file-error");
+
+                this.value = "";
+                return;
+            }
+
+            fileName.textContent = "Selected: " + file.name;
+            fileName.classList.remove("file-error");
+        });
+    </script>
+
+</body>
+</html>
