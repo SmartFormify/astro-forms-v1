@@ -1,3 +1,7 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,7 @@
 
     <title>Request a Quote</title>
 
-    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
@@ -40,7 +44,7 @@
 
             <!-- Form -->
             <form
-                action="YOUR_SMARTFORMIFY_ENDPOINT_URL"
+                action={endpointUrl}
                 method="POST"
                 class="quote-form"
             >
@@ -333,7 +337,9 @@
                     Request a Quote
                 </button>
 
-            </form>
+                <input type="hidden" name="notes_hqse" value="" />
+
+</form>
 
         </section>
 

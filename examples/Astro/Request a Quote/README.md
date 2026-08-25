@@ -1,28 +1,17 @@
-# Laravel Request a Quote Form
+# Astro Request a Quote Form
 
-A professional Laravel quote request form built with a Blade template, external CSS, and a web route. The form allows potential customers to provide their contact information, project requirements, estimated budget, expected timeline, and additional details.
+A professional request-a-quote form built with Astro using an Astro `.astro` file and external CSS.
 
-## Files
+## Folder Structure
 
 ```text
 request-quote-form/
-├── resources/
-│   └── views/
-│       └── request_quote.blade.php
-│
-├── public/
-│   └── css/
-│       └── style.css
-│
-└── routes/
-    └── web.php
+├── README.md
+├── style.css
+└── request_quote.astro
 ```
 
-### `request_quote.blade.php`
-
-Contains the quote request form UI.
-
-The form includes:
+## Form Fields
 
 - First Name
 - Last Name
@@ -34,10 +23,10 @@ The form includes:
 - Project Name
 - Project Description
 - Additional Notes
-- Consent checkbox
+- Consent Checkbox
 - Request a Quote button
 
-The following fields are required:
+Required fields:
 
 - First Name
 - Last Name
@@ -46,201 +35,66 @@ The following fields are required:
 - Project Description
 - Consent
 
-The form uses HTML `required` validation and is submitted using the `POST` method.
+Native HTML `required` validation is used.
 
-The external stylesheet is loaded using Laravel's `asset()` helper:
+## SmartFormify Setup
 
-```blade
-<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+Open `request_quote.astro` and update:
+
+```astro
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
 ```
 
-### `style.css`
+Replace the placeholder with your SmartFormify Endpoint URL.
 
-Contains the external styling for the quote request form, including:
-
-- Quote card layout
-- Section headers
-- Form fields
-- Select controls
-- Textareas
-- Consent section
-- Submit button
-- Hover and focus states
-- Responsive mobile layout
-
-### `web.php`
-
-Defines the route used to display the quote request form:
-
-```php
-Route::view('/request-quote', 'request_quote');
-```
-
-## Setup
-
-1. Create or open a Laravel project.
-
-2. Place `request_quote.blade.php` in:
+The form submits directly using `POST`:
 
 ```text
-resources/views/
-```
-
-3. Place `style.css` in:
-
-```text
-public/css/
-```
-
-4. Add the provided route to:
-
-```text
-routes/web.php
-```
-
-5. Start the Laravel development server:
-
-```bash
-php artisan serve
-```
-
-6. Open the quote request form in your browser:
-
-```text
-http://127.0.0.1:8000/request-quote
-```
-
-## Testing
-
-Open:
-
-```text
-http://127.0.0.1:8000/request-quote
-```
-
-Complete the required project information.
-
-The following fields are required:
-
-- First Name
-- Last Name
-- Email Address
-- Service
-- Project Description
-- Consent
-
-You can optionally provide:
-
-- Phone Number
-- Estimated Budget
-- Expected Timeline
-- Project Name
-- Additional Notes
-
-Click **Request a Quote** to test the form submission.
-
-> Note: This example provides the quote request UI and Laravel route. It does not calculate quotes, store requests, send emails, or create a quote management system unless additional Laravel backend functionality is added.
-
-## Form Submission with SmartFormify
-
-The quote request form contains a placeholder SmartFormify endpoint:
-
-```html
-<form
-    action="YOUR_SMARTFORMIFY_ENDPOINT_URL"
-    method="POST"
-    class="quote-form"
->
-```
-
-If you already have a **SmartFormify endpoint URL**, you can connect the form without creating a Laravel controller or custom API integration.
-
-The basic flow is:
-
-```text
-Laravel Request a Quote Form
-            ↓
-SmartFormify Endpoint URL
-            ↓
+Astro Request a Quote Form
+          ↓
+SmartFormify Endpoint
+          ↓
 Submission Processing
-            ↓
+          ↓
 Email / Notifications / Response
 ```
 
-### SmartFormify Setup
+No Laravel controller, Laravel route, PHP, Composer, or additional package is required.
 
-Follow these steps to connect the quote request form with SmartFormify:
+## Hidden Field
 
-1. **Sign up or log in to SmartFormify.**
-2. Go to the **Endpoints** section.
-3. Click **Create Endpoint**.
-4. Enter the required endpoint details and create your endpoint.
-5. After the endpoint is created, **copy the Endpoint URL**.
-6. Open:
-
-```text
-resources/views/request_quote.blade.php
-```
-
-7. Find:
+Keep this SmartFormify silent bot-check field present and empty:
 
 ```html
-action="YOUR_SMARTFORMIFY_ENDPOINT_URL"
+<input type="hidden" name="notes_hqse" value="" />
 ```
 
-8. Replace it with your copied SmartFormify Endpoint URL.
+## CSS
 
-For example:
+All styling is in `style.css`.
+
+The Astro page references it with:
 
 ```html
-<form
-    action="YOUR_SMARTFORMIFY_ENDPOINT_URL"
-    method="POST"
-    class="quote-form"
->
+<link rel="stylesheet" href="/style.css">
 ```
 
-Keep the form method as:
+When integrating into an Astro project, place `style.css` in the project's `public/` directory if it should be served as `/style.css`.
 
-```html
-method="POST"
-```
+## Setup
 
-Make sure the input `name` attributes match the fields expected by your SmartFormify endpoint.
-
-> **Note:** The Laravel files in this example provide the quote request form UI and route. SmartFormify can be used to handle the submission workflow when a valid endpoint is configured.
+Place `request_quote.astro` under an appropriate `src/pages/` location. Its location determines the page URL.
 
 ## Requirements
 
-- PHP
-- Composer
-- Laravel
+- Astro
+- SmartFormify Endpoint URL
+- No additional packages
 
 ## Customization
 
-You can customize the form by editing:
+Edit `request_quote.astro` to change fields, service options, budget ranges, timeline options, labels, placeholders, consent text, or the SmartFormify endpoint.
 
-```text
-resources/views/request_quote.blade.php
-```
+Edit `style.css` to customize colors, typography, spacing, layout, controls, buttons, and responsive behavior.
 
-You can customize the visual design by editing:
-
-```text
-public/css/style.css
-```
-
-You can change:
-
-- Form fields
-- Service options
-- Budget ranges
-- Timeline options
-- Labels
-- Placeholders
-- Button text
-- Colors
-- Layout
-- Responsive styles
-- Consent text
-- SmartFormify endpoint URL
+> Note: This form provides the quote-request UI and endpoint submission. It does not calculate quotes, store requests, send emails, or provide quote management unless those workflows are configured through the connected endpoint.
