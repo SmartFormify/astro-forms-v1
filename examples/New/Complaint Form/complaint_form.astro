@@ -1,0 +1,135 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Complaint Form</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Complaint Form</h1>
+
+        <form
+            action={endpointUrl}
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="complaint_type">Complaint Type</label>
+
+                <select
+                    id="complaint_type"
+                    name="complaint_type"
+                    required
+                >
+                    <option value="">Select complaint type</option>
+                    <option value="product">Product</option>
+                    <option value="service">Service</option>
+                    <option value="staff">Staff</option>
+                    <option value="billing">Billing</option>
+                    <option value="delivery">Delivery</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reference">Order / Reference Number</label>
+
+                <input
+                    type="text"
+                    id="reference"
+                    name="reference"
+                    placeholder="Enter order or reference number"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="subject">Complaint Subject</label>
+
+                <input
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    placeholder="Briefly describe your complaint"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="description">Complaint Details</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Please describe your complaint in detail."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="resolution">Preferred Resolution</label>
+
+                <textarea
+                    id="resolution"
+                    name="resolution"
+                    placeholder="Tell us how you would like the issue to be resolved."
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Submit Complaint
+            </button>
+
+            <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+    </main>
+
+</body>
+</html>

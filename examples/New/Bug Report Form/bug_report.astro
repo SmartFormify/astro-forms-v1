@@ -1,0 +1,160 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bug Report Form</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Bug Report</h1>
+
+        <form
+            action={endpointUrl}
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="bug_title">Bug Title</label>
+
+                <input
+                    type="text"
+                    id="bug_title"
+                    name="bug_title"
+                    placeholder="Briefly describe the issue"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="category">Bug Category</label>
+
+                <select
+                    id="category"
+                    name="category"
+                    required
+                >
+                    <option value="">Select a category</option>
+                    <option value="ui">UI / Design</option>
+                    <option value="functionality">Functionality</option>
+                    <option value="performance">Performance</option>
+                    <option value="security">Security</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="severity">Severity</label>
+
+                <select
+                    id="severity"
+                    name="severity"
+                    required
+                >
+                    <option value="">Select severity</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                    <option value="critical">Critical</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="page_url">Page URL</label>
+
+                <input
+                    type="url"
+                    id="page_url"
+                    name="page_url"
+                    placeholder="https://example.com/page"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="description">Bug Description</label>
+
+                <textarea
+                    id="description"
+                    name="description"
+                    placeholder="Describe the issue and what happened."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="steps">Steps to Reproduce</label>
+
+                <textarea
+                    id="steps"
+                    name="steps"
+                    placeholder="1. Go to...&#10;2. Click on...&#10;3. The issue occurs..."
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="expected_result">Expected Result</label>
+
+                <textarea
+                    id="expected_result"
+                    name="expected_result"
+                    placeholder="What should have happened?"
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="actual_result">Actual Result</label>
+
+                <textarea
+                    id="actual_result"
+                    name="actual_result"
+                    placeholder="What actually happened?"
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Submit Bug Report
+            </button>
+
+            <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Consultation Form</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Consultation Form</h1>
+
+        <form
+            action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="consultation_type">Consultation Type</label>
+
+                <select
+                    id="consultation_type"
+                    name="consultation_type"
+                    required
+                >
+                    <option value="">Select consultation type</option>
+                    <option value="business">Business Consultation</option>
+                    <option value="marketing">Marketing Consultation</option>
+                    <option value="technical">Technical Consultation</option>
+                    <option value="financial">Financial Consultation</option>
+                    <option value="legal">Legal Consultation</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="preferred_date">Preferred Date</label>
+
+                <input
+                    type="date"
+                    id="preferred_date"
+                    name="preferred_date"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="preferred_time">Preferred Time</label>
+
+                <input
+                    type="time"
+                    id="preferred_time"
+                    name="preferred_time"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="company">Company / Organization</label>
+
+                <input
+                    type="text"
+                    id="company"
+                    name="company"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="message">What Would You Like to Discuss?</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Briefly describe what you would like help with."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Request Consultation
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

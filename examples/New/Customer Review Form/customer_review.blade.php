@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Review Form</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Customer Review</h1>
+
+        <form
+            action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="rating">Overall Rating</label>
+
+                <select
+                    id="rating"
+                    name="rating"
+                    required
+                >
+                    <option value="">Select a rating</option>
+                    <option value="5">5 - Excellent</option>
+                    <option value="4">4 - Very Good</option>
+                    <option value="3">3 - Good</option>
+                    <option value="2">2 - Fair</option>
+                    <option value="1">1 - Poor</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="service">Service / Product</label>
+
+                <input
+                    type="text"
+                    id="service"
+                    name="service"
+                    placeholder="What product or service did you use?"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="review">Your Review</label>
+
+                <textarea
+                    id="review"
+                    name="review"
+                    placeholder="Tell us about your experience."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="recommend">Would You Recommend Us?</label>
+
+                <select
+                    id="recommend"
+                    name="recommend"
+                    required
+                >
+                    <option value="">Select an option</option>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+
+            <button type="submit">
+                Submit Review
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

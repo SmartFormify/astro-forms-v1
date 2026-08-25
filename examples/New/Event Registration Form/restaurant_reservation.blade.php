@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Event Registration</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Event Registration</h1>
+
+        <form
+            action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="event">Select Event</label>
+
+                <select
+                    id="event"
+                    name="event"
+                    required
+                >
+                    <option value="">Select an event</option>
+                    <option value="conference">Business Conference</option>
+                    <option value="workshop">Workshop</option>
+                    <option value="seminar">Seminar</option>
+                    <option value="networking">Networking Event</option>
+                    <option value="webinar">Webinar</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="event_date">Event Date</label>
+
+                <input
+                    type="date"
+                    id="event_date"
+                    name="event_date"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="attendees">Number of Attendees</label>
+
+                <input
+                    type="number"
+                    id="attendees"
+                    name="attendees"
+                    min="1"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="ticket_type">Ticket Type</label>
+
+                <select
+                    id="ticket_type"
+                    name="ticket_type"
+                    required
+                >
+                    <option value="">Select ticket type</option>
+                    <option value="standard">Standard</option>
+                    <option value="premium">Premium</option>
+                    <option value="vip">VIP</option>
+                    <option value="student">Student</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="organization">Company / Organization</label>
+
+                <input
+                    type="text"
+                    id="organization"
+                    name="organization"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Add any special requirements or additional information."
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Register for Event
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

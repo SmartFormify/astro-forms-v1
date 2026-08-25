@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Real Estate Enquiry Form</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ asset('css/style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Real Estate Enquiry</h1>
+
+        <form
+            action="https://api.smartformify.com/YOUR_FORM_ENDPOINT"
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="enquiry_type">Enquiry Type</label>
+
+                <select
+                    id="enquiry_type"
+                    name="enquiry_type"
+                    required
+                >
+                    <option value="">Select enquiry type</option>
+                    <option value="buy">Buy a Property</option>
+                    <option value="rent">Rent a Property</option>
+                    <option value="sell">Sell a Property</option>
+                    <option value="lease">Lease a Property</option>
+                    <option value="investment">Property Investment</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="property_type">Property Type</label>
+
+                <select
+                    id="property_type"
+                    name="property_type"
+                    required
+                >
+                    <option value="">Select property type</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="house">House</option>
+                    <option value="villa">Villa</option>
+                    <option value="commercial">Commercial Property</option>
+                    <option value="land">Land / Plot</option>
+                    <option value="office">Office Space</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="location">Preferred Location</label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder="City, area, or neighborhood"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="budget">Budget Range</label>
+
+                <select
+                    id="budget"
+                    name="budget"
+                    required
+                >
+                    <option value="">Select budget range</option>
+                    <option value="under_100k">Under $100,000</option>
+                    <option value="100k_250k">$100,000 - $250,000</option>
+                    <option value="250k_500k">$250,000 - $500,000</option>
+                    <option value="500k_1m">$500,000 - $1,000,000</option>
+                    <option value="over_1m">Over $1,000,000</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bedrooms">Bedrooms</label>
+
+                <select
+                    id="bedrooms"
+                    name="bedrooms"
+                >
+                    <option value="">Select bedrooms</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5_plus">5+</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Requirements</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Tell us about your property requirements."
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Submit Enquiry
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>
