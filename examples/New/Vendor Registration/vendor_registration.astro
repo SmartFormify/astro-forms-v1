@@ -1,0 +1,146 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vendor Registration</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>Vendor Registration</h1>
+
+        <form
+            action={endpointUrl}
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="business_name">Business Name</label>
+
+                <input
+                    type="text"
+                    id="business_name"
+                    name="business_name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="contact_name">Contact Person</label>
+
+                <input
+                    type="text"
+                    id="contact_name"
+                    name="contact_name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="business_type">Business Type</label>
+
+                <select
+                    id="business_type"
+                    name="business_type"
+                    required
+                >
+                    <option value="">Select business type</option>
+                    <option value="manufacturer">Manufacturer</option>
+                    <option value="wholesaler">Wholesaler</option>
+                    <option value="distributor">Distributor</option>
+                    <option value="retailer">Retailer</option>
+                    <option value="service_provider">Service Provider</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="website">Website</label>
+
+                <input
+                    type="url"
+                    id="website"
+                    name="website"
+                    placeholder="https://example.com"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="location">Business Location</label>
+
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="products">Products / Services</label>
+
+                <textarea
+                    id="products"
+                    name="products"
+                    placeholder="Describe the products or services you provide."
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Provide any additional information."
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Register as Vendor
+            </button>
+
+            <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+    </main>
+
+</body>
+</html>

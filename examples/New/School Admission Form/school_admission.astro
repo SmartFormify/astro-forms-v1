@@ -1,0 +1,167 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>School Admission Form</title>
+
+    <link
+        rel="stylesheet"
+        href="/style.css"
+    >
+</head>
+
+<body>
+
+    <main class="form-container">
+
+        <h1>School Admission Form</h1>
+
+        <form
+            action={endpointUrl}
+            method="POST"
+        >
+
+            <div class="form-group">
+                <label for="student_name">Student Name</label>
+
+                <input
+                    type="text"
+                    id="student_name"
+                    name="student_name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="date_of_birth">Date of Birth</label>
+
+                <input
+                    type="date"
+                    id="date_of_birth"
+                    name="date_of_birth"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+
+                <select
+                    id="gender"
+                    name="gender"
+                    required
+                >
+                    <option value="">Select gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="class">Applying for Class</label>
+
+                <select
+                    id="class"
+                    name="class"
+                    required
+                >
+                    <option value="">Select class</option>
+                    <option value="pre_primary">Pre-Primary</option>
+                    <option value="kindergarten">Kindergarten</option>
+                    <option value="grade_1">Grade 1</option>
+                    <option value="grade_2">Grade 2</option>
+                    <option value="grade_3">Grade 3</option>
+                    <option value="grade_4">Grade 4</option>
+                    <option value="grade_5">Grade 5</option>
+                    <option value="grade_6">Grade 6</option>
+                    <option value="grade_7">Grade 7</option>
+                    <option value="grade_8">Grade 8</option>
+                    <option value="grade_9">Grade 9</option>
+                    <option value="grade_10">Grade 10</option>
+                    <option value="grade_11">Grade 11</option>
+                    <option value="grade_12">Grade 12</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="parent_name">Parent / Guardian Name</label>
+
+                <input
+                    type="text"
+                    id="parent_name"
+                    name="parent_name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Parent / Guardian Email</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Parent / Guardian Phone</label>
+
+                <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+
+                <textarea
+                    id="address"
+                    name="address"
+                    required
+                ></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="previous_school">Previous School</label>
+
+                <input
+                    type="text"
+                    id="previous_school"
+                    name="previous_school"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="message">Additional Information</label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    placeholder="Add any additional information about the admission."
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Submit Admission Form
+            </button>
+
+            <input type="hidden" name="notes_hqse" value="" />
+
+</form>
+
+    </main>
+
+</body>
+</html>
