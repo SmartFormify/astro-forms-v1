@@ -211,7 +211,7 @@ No custom Astro API route is required for the basic endpoint submission flow.
 
 ## Included Forms
 
-1. [Contact Form](./appointment_form)
+1. [Contact Form](./examples/appointment_form/)
 2. [Contact Form with File Upload](./appointment_form)
 3. [Registration Form](./appointment_form)
 4. [Login UI Form](./appointment_form)
