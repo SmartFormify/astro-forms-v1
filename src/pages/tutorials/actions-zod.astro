@@ -1,0 +1,6 @@
+---
+import '../../styles/global.css';
+import { actions } from 'astro:actions';
+const result = Astro.getActionResult(actions.contact);
+---
+<main><h1>Astro Form Validation with Actions and Zod</h1><p>Astro Actions are optional for a direct hosted form. Use one when the app needs server-side validation, transformations, or additional integrations.</p><div class="card"><form class="form" method="POST" action={actions.contact}><label class="field">Name <input name="name" required /></label><label class="field">Email <input name="email" type="email" required /></label><label class="field">Message <textarea name="message" minlength="10" required></textarea></label><label><input name="consent" type="checkbox" /> I agree to be contacted about this request.</label><button>Submit securely</button>{result?.error && <p class="error" aria-live="polite">{result.error.message}</p>}{result?.data && <p class="success" aria-live="polite">{result.data.message}</p>}</form></div><p>The action in <code>src/actions/index.ts</code> uses <code>defineAction</code>, <code>accept: 'form'</code>, <code>z.email()</code>, coercion for the optional checkbox, and a typed ActionError before forwarding JSON to the endpoint.</p></main>

@@ -2,7 +2,6 @@
 
 A basic multi-step contact form built with **Astro** and JavaScript, submitting the completed form directly to a **SmartFormify endpoint**.
 
-The original Laravel Blade implementation has been converted to Astro. Laravel routes, PHP, Composer, Blade syntax, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
@@ -40,7 +39,7 @@ multi_step_form.astro
 Update the Astro frontmatter:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your actual SmartFormify endpoint.
@@ -56,7 +55,6 @@ method="POST"
 The form includes the SmartFormify silent bot-check field:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 Keep this field present and empty.

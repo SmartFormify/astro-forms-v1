@@ -1,0 +1,4 @@
+---
+import '../../styles/global.css';
+---
+<main><h1>Connect an Existing Astro Form to a Backend</h1><p>The visual form can stay the same. Add an endpoint action and method; keep labels and native validation intact.</p><h2>Before</h2><pre><code>&lt;form class="contact-form"&gt;…&lt;/form&gt;</code></pre><h2>After</h2><pre><code>&lt;form class="contact-form" action="https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY" method="POST"&gt;…&lt;/form&gt;</code></pre><p>For a static site this is enough. Switch to Fetch only when an in-page result is genuinely needed.</p></main>

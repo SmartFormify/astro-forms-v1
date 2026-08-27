@@ -2,7 +2,6 @@
 
 A professional callback request form built with Astro using an Astro `.astro` file and an external CSS file.
 
-The original Laravel Blade implementation has been converted to Astro. Laravel routes, PHP, Composer, Blade syntax, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
@@ -53,7 +52,7 @@ callback_request.astro
 Update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your actual SmartFormify Endpoint URL.
@@ -70,14 +69,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel controller, route, PHP backend, Astro API route, or additional package is required.
 
 ## Hidden Field
 
 Keep the SmartFormify silent bot-check field present and empty:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 ## Testing

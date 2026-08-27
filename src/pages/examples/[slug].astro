@@ -1,0 +1,8 @@
+---
+import '../../styles/global.css';
+import TemplateForm from '../../components/TemplateForm.astro';
+import { forms } from '../../data/forms';
+export function getStaticPaths() { return forms.map((template) => ({ params: { slug: template.slug }, props: { template } })); }
+const { template } = Astro.props;
+---
+<main><p><a href="/">← All examples</a></p><h1>Astro {template.name}</h1><p>{template.bestFor}. This native form sends a normal POST to the public endpoint configured in <code>PUBLIC_SMARTFORMIFY_ENDPOINT</code>.</p><div class="card"><TemplateForm template={template} /></div></main>

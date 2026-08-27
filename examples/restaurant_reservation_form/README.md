@@ -2,7 +2,6 @@
 
 A basic Restaurant Reservation form built with Astro that submits form data directly to a SmartFormify endpoint.
 
-The original Laravel Blade implementation has been converted to Astro. Laravel routes, PHP, Composer, Blade syntax, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
@@ -30,7 +29,7 @@ restaurant-reservation-form/
 Open `restaurant_reservation.astro` and update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your actual SmartFormify endpoint.
@@ -47,14 +46,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel route, PHP controller, Astro API route, or additional package is required.
 
 ## Hidden Field
 
 Keep this SmartFormify silent bot-check field present and empty:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 ## CSS

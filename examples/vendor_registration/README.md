@@ -2,7 +2,6 @@
 
 A basic Vendor Registration form built with Astro that submits form data directly to a SmartFormify endpoint.
 
-The original Laravel Blade implementation has been converted to Astro. Laravel routes, PHP, Composer, Blade syntax, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
@@ -36,7 +35,7 @@ vendor_registration.astro
 Update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your actual SmartFormify endpoint.
@@ -53,14 +52,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel route, PHP controller, Astro API route, or additional package is required.
 
 ## Hidden Field
 
 The form includes the SmartFormify silent bot-check field:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 Keep this field present and empty.

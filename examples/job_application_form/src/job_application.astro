@@ -1,5 +1,5 @@
 ---
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ---
 
 <!DOCTYPE html>
@@ -48,7 +48,6 @@ const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
             <form
                 action={endpointUrl}
                 method="POST"
-                enctype="multipart/form-data"
                 class="application-form"
             >
 
@@ -249,39 +248,9 @@ const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
                 </div>
 
 
-                <!-- Resume -->
                 <div class="form-group">
-
-                    <label for="resume">
-                        Resume / CV <span>*</span>
-                    </label>
-
-                    <div class="file-upload">
-
-                        <input
-                            type="file"
-                            id="resume"
-                            name="resume"
-                            accept=".pdf,.doc,.docx"
-                            required
-                        >
-
-                        <div class="upload-icon">
-                            ↑
-                        </div>
-
-                        <div class="upload-title">
-                            Upload your resume
-                        </div>
-
-                        <div class="upload-text">
-                            PDF, DOC or DOCX · Maximum 10 MB
-                        </div>
-
-                        <div id="file-name"></div>
-
-                    </div>
-
+                    <label for="portfolio_url">Portfolio, LinkedIn, or resume URL</label>
+                    <input id="portfolio_url" name="portfolio_url" type="url" placeholder="https://" />
                 </div>
 
 
@@ -311,8 +280,6 @@ const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
                 >
                     Submit Application
                 </button>
-
-                <input type="hidden" name="notes_hqse" value="" />
 
 </form>
 

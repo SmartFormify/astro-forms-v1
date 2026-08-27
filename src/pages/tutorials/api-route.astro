@@ -1,0 +1,11 @@
+---
+import '../../styles/global.css';
+---
+<main><h1>Astro Form with an API Route</h1><p>An API route is not required for ordinary SmartFormify usage. Use it for server-only transformations, combined API calls, or business rules; do not add a proxy simply to hide a public browser submission URL.</p><pre><code>export const POST: APIRoute = async (&lcub; request &rcub;) =&gt; &lcub;
+  const form = await request.formData();
+  const response = await fetch(import.meta.env.SMARTFORMIFY_ENDPOINT, &lcub;
+    method: 'POST', headers: &lcub; 'Content-Type': 'application/json' &rcub;,
+    body: JSON.stringify(&lcub; data: Object.fromEntries(form) &rcub;)
+  &rcub;);
+  return new Response(await response.text(), &lcub; status: response.status &rcub;);
+&rcub;;</code></pre></main>

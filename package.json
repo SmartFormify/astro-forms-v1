@@ -1,0 +1,19 @@
+{
+  "name": "astro-form-backend-examples",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
+    "verify:examples": "node scripts/verify-examples.mjs",
+    "check:links": "node scripts/check-links.mjs",
+    "verify": "npm run verify:examples && npm run check:links && npm run check && npm run build"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.0.0",
+    "astro": "^7.0.0",
+    "zod": "^4.0.0"
+  }
+}

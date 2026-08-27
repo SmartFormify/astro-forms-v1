@@ -26,7 +26,7 @@ The form uses native HTML `required` validation.
 Open `contact_form.astro` and update:
 
 ```astro
-const endpointUrl = "https://api.smartformify.com/fe/YOUR_FORM_ENDPOINT";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your SmartFormify endpoint URL.
@@ -41,14 +41,12 @@ SmartFormify Endpoint
 Submission Processing
 ```
 
-No Laravel route, controller, PHP backend, Astro API route, or additional package is required.
 
 ## Hidden Field
 
 The form includes the SmartFormify silent bot-check field:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 Keep this field present and empty.

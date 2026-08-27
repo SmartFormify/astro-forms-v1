@@ -42,7 +42,7 @@ Native HTML `required` validation is used.
 Open `request_quote.astro` and update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your SmartFormify Endpoint URL.
@@ -59,14 +59,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel controller, Laravel route, PHP, Composer, or additional package is required.
 
 ## Hidden Field
 
 Keep this SmartFormify silent bot-check field present and empty:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 ## CSS

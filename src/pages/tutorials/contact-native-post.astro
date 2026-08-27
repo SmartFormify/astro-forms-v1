@@ -1,0 +1,5 @@
+---
+import '../../styles/global.css';
+const endpoint = 'https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY';
+---
+<main><h1>Astro Contact Form — Native POST</h1><p>A normal HTML form works in an <code>.astro</code> page and is the simplest option for a static Astro site. The browser navigates to the endpoint’s configured redirect or thank-you page.</p><div class="card"><form class="form" action={endpoint} method="POST"><label class="field">Name <input name="name" required /></label><label class="field">Email <input name="email" type="email" required /></label><label class="field">Message <textarea name="message" required rows="5"></textarea></label><button>Send message</button></form></div><h2>Without building your own backend</h2><p>A form still needs a processor. This direct hosted endpoint means you do not need to build and maintain an Astro API route for this basic case. The submission URL is public browser configuration, not a secret; restrict it to expected domains in SmartFormify.</p></main>

@@ -2,7 +2,6 @@
 
 A professional job application form built with Astro using an `.astro` page and an external CSS file.
 
-The original Laravel Blade template and Laravel route requirements have been removed while preserving the job application fields, resume upload, validation, and responsive design.
 
 ## Folder Structure
 
@@ -43,7 +42,6 @@ The form uses:
 
 ```html
 method="POST"
-enctype="multipart/form-data"
 ```
 
 `multipart/form-data` is required when submitting the resume file.
@@ -59,7 +57,7 @@ job_application.astro
 Update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your SmartFormify endpoint URL.
@@ -76,14 +74,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel controller, Laravel route, custom API, or additional package is required.
 
 ## Hidden Field
 
 The form includes the SmartFormify silent bot-check field:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 Keep this field present and empty.
@@ -153,6 +149,6 @@ Edit `style.css` to change:
 - Typography
 - Spacing
 - Card layout
-- File upload appearance
+- Portfolio or resume URL field
 - Button styling
 - Responsive behavior

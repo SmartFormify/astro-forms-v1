@@ -1,0 +1,15 @@
+---
+import '../styles/global.css';
+import { forms } from '../data/forms';
+---
+<main>
+  <h1>Astro Form Backend Examples</h1>
+  <p>Practical Astro 7 form examples and tutorials using native POST, Fetch, FormData, TypeScript, Astro Actions, API routes and validation. Connect contact, booking, quote, registration, survey and other website forms to a hosted form endpoint without maintaining a separate form-processing backend.</p>
+  <p><a href="/tutorials/contact-native-post/">Start with the native POST contact form</a> or browse a ready-to-copy template.</p>
+  <h2>Astro Form Tutorials</h2>
+  <div class="grid"><a class="card" href="/tutorials/contact-native-post/">Native POST</a><a class="card" href="/tutorials/fetch-form/">Fetch, FormData & JSON</a><a class="card" href="/tutorials/actions-zod/">Actions + Zod</a><a class="card" href="/tutorials/api-route/">API route</a><a class="card" href="/tutorials/existing-form/">Connect an existing form</a></div>
+  <h2>Ready-to-Use Astro Forms</h2>
+  <div class="grid">{forms.map((form) => <a class="card" href={`/examples/${form.slug}/`}><strong>{form.name}</strong><br /><small>{form.bestFor}</small></a>)}</div>
+  <h2>Submission approaches</h2>
+  <table><thead><tr><th>Example</th><th>Submission</th><th>Validation</th><th>Best for</th></tr></thead><tbody><tr><td><a href="/tutorials/contact-native-post/">Contact</a></td><td>Native POST</td><td>HTML</td><td>Static sites</td></tr><tr><td><a href="/tutorials/fetch-form/">Fetch</a></td><td>JSON or FormData</td><td>HTML</td><td>AJAX UX</td></tr><tr><td><a href="/tutorials/actions-zod/">Actions + Zod</a></td><td>Astro Action</td><td>Zod</td><td>Server validation</td></tr><tr><td><a href="/tutorials/api-route/">API route</a></td><td>Server proxy</td><td>Server</td><td>Extra logic</td></tr></tbody></table>
+</main>

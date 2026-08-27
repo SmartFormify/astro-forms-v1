@@ -29,7 +29,7 @@ bug-report/
 Open `bug_report.astro` and update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your actual SmartFormify endpoint.
@@ -46,14 +46,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel route, PHP, controller, Astro API route, or additional package is required.
 
 ## Hidden Field
 
 Keep this SmartFormify silent bot-check field present and empty:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 ## CSS

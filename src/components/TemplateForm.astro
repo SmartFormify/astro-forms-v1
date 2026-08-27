@@ -1,0 +1,12 @@
+---
+import type { FormTemplate } from '../data/forms';
+const { template } = Astro.props as { template: FormTemplate };
+const endpoint = import.meta.env.PUBLIC_SMARTFORMIFY_ENDPOINT ?? 'https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY';
+---
+<form class="form" action={endpoint} method="POST">
+  {template.fields.map((field) => <label class="field" for={field.name}>
+    <span>{field.label}{field.required && ' *'}</span>
+    {field.type === 'textarea' ? <textarea id={field.name} name={field.name} required={field.required} rows="4" /> : field.type === 'select' ? <select id={field.name} name={field.name} required={field.required}><option value="">Select an option</option>{field.options?.map((option) => <option value={option}>{option}</option>)}</select> : <input id={field.name} name={field.name} type={field.type ?? 'text'} required={field.required} />}
+  </label>)}
+  <button type="submit">Send {template.name}</button>
+</form>

@@ -2,7 +2,6 @@
 
 A professional feedback form built with the Astro framework using an Astro `.astro` file and an external CSS file.
 
-The original feedback form fields and options are preserved. Laravel Blade syntax, Laravel routes, PHP, Composer, and `php artisan` requirements have been removed.
 
 ## Folder Structure
 
@@ -45,7 +44,7 @@ feedback.astro
 Update:
 
 ```astro
-const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+const endpointUrl = "https://api.smartformify.com/fe/YOUR_ENDPOINT_KEY";
 ```
 
 Replace the placeholder with your SmartFormify endpoint URL.
@@ -68,14 +67,12 @@ Submission Processing
 Email / Notifications / Response
 ```
 
-No Laravel controller, Laravel route, custom backend, or additional package is required.
 
 ## Hidden Field
 
 The form includes the SmartFormify silent bot-check field:
 
 ```html
-<input type="hidden" name="notes_hqse" value="" />
 ```
 
 Keep this field present and empty.
