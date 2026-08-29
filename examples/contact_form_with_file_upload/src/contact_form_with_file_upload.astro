@@ -1,0 +1,172 @@
+---
+const endpointUrl = "YOUR_SMARTFORMIFY_ENDPOINT_URL";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form with File Upload</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+
+  <body>
+    <main class="contact-section">
+      <section class="contact-wrapper">
+        <div class="contact-info">
+          <div>
+            <h1>Contact Us</h1>
+            <p>
+              Send us your message and attach a relevant document if needed.
+              We’ll get back to you as soon as possible.
+            </p>
+          </div>
+
+          <div class="contact-details">
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">✉</div>
+              <div>
+                <strong>Email</strong>
+                <span>hello@example.com</span>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-icon" aria-hidden="true">☎</div>
+              <div>
+                <strong>Phone</strong>
+                <span>+1 000 000 0000</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <div class="form-header">
+            <h2>Send a Message</h2>
+            <p>Complete the form below and submit your enquiry.</p>
+          </div>
+
+          <form
+            action={endpointUrl}
+            method="POST"
+            enctype="multipart/form-data"
+            id="contact-form"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="first_name">First Name <span class="required">*</span></label>
+                <input id="first_name" name="first_name" type="text" autocomplete="given-name" required />
+              </div>
+
+              <div class="form-group">
+                <label for="last_name">Last Name <span class="required">*</span></label>
+                <input id="last_name" name="last_name" type="text" autocomplete="family-name" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address <span class="required">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Subject <span class="required">*</span></label>
+              <input id="subject" name="subject" type="text" required />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message <span class="required">*</span></label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="attachment">Attachment</label>
+              <div class="file-upload">
+                <input
+                  type="file"
+                  id="attachment"
+                  name="attachment"
+                  accept=".pdf,.doc,.docx,.jpg,.jpeg,.png"
+                />
+                <div class="upload-icon" aria-hidden="true">↑</div>
+                <div class="upload-title">Choose a file</div>
+                <div class="upload-text">PDF, DOC, DOCX, JPG, JPEG, PNG — maximum 10 MB</div>
+                <div id="file-name" aria-live="polite"></div>
+              </div>
+            </div>
+
+            <div class="checkbox-group">
+              <input type="checkbox" id="consent" name="consent" value="yes" required />
+              <label for="consent">
+                I agree to be contacted regarding my enquiry.
+                <span class="required">*</span>
+              </label>
+            </div>
+
+            <button type="submit" class="submit-button">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const fileInput = document.getElementById("attachment");
+      const fileName = document.getElementById("file-name");
+      const form = document.getElementById("contact-form");
+
+      const allowedTypes = [
+        "application/pdf",
+        "application/msword",
+        "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+        "image/jpeg",
+        "image/png"
+      ];
+
+      const maxFileSize = 10 * 1024 * 1024;
+
+      fileInput?.addEventListener("change", () => {
+        const file = fileInput.files?.[0];
+
+        if (!file) {
+          fileName.textContent = "";
+          return;
+        }
+
+        if (!allowedTypes.includes(file.type)) {
+          fileName.textContent = "Invalid file type.";
+          fileInput.value = "";
+          return;
+        }
+
+        if (file.size > maxFileSize) {
+          fileName.textContent = "File must be 10 MB or smaller.";
+          fileInput.value = "";
+          return;
+        }
+
+        fileName.textContent = file.name;
+      });
+
+      form?.addEventListener("submit", (event) => {
+        const file = fileInput?.files?.[0];
+        if (!file) return;
+
+        if (!allowedTypes.includes(file.type) || file.size > maxFileSize) {
+          event.preventDefault();
+          fileName.textContent = file.size > maxFileSize
+            ? "File must be 10 MB or smaller."
+            : "Invalid file type.";
+        }
+      });
+    </script>
+  </body>
+</html>
